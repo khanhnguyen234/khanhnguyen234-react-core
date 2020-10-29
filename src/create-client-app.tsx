@@ -21,7 +21,9 @@ const defaultOptions = {
 export default async function createClientApp(_options: ClientAppOptions) {
   const options = { ...defaultOptions, ..._options };
   const modules =
-    options.microFE === true ? await fetchExternalModules('/pwa-version') : {};
+    options.microFE === true
+      ? await fetchExternalModules('/micro-version')
+      : {};
 
   const stateManagement = createStateManagement({
     enableReduxDevTools: options.enableReduxDevTools,
@@ -53,7 +55,7 @@ export default async function createClientApp(_options: ClientAppOptions) {
     options.container,
   );
   window.store = store;
-  window.sendoHistory = history;
+  window.appHistory = history;
 }
 
 async function fetchExternalModules(managementEndpoint: string) {
@@ -75,7 +77,7 @@ export async function getModules(
   name: string,
 ) {
   if (!modules[packageName]) {
-    console.log(`[pwa] module "${packageName}:${name}" not found`);
+    console.log(`[micro] module "${packageName}:${name}" not found`);
     return emptyModule;
   }
   try {
@@ -88,7 +90,7 @@ export async function getModules(
     const result = await externalModule.default(name);
     return result || emptyModule;
   } catch (error) {
-    console.log(`[pwa] module "${packageName}:${name}" not found`);
+    console.log(`[micro] module "${packageName}:${name}" not found`);
     return emptyModule;
   }
 }

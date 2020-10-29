@@ -20,7 +20,7 @@ declare global {
     __STATE__: any;
     __MODULES__: any;
     __SSR__: boolean;
-    sendoHistory: History;
+    appHistory: History;
   }
 }
 

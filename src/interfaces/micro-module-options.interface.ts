@@ -18,7 +18,7 @@ export type FnModuleFactory = (
   context: ApplicationContext,
 ) => Promise<ModuleFactoryResult>;
 
-export default interface PWAModuleOptions {
+export default interface MicroModuleOptions {
   name: string;
   placeholder: React.ElementType;
   factory: FnModuleFactory;

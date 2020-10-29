@@ -1,10 +1,10 @@
-import { PWAModule } from './pwa-module';
+import { MicroModule } from './micro-module';
 
 function Null() {
   return null;
 }
 
-const emptyModule = new PWAModule({
+const emptyModule = new MicroModule({
   name: 'empty',
   placeholder: Null,
   factory: async (ctx) => {

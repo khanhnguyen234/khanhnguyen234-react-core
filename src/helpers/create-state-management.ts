@@ -14,7 +14,7 @@ import ApplicationContext from '../interfaces/application-context';
 import DataSource from '../interfaces/data-source.interface';
 import Storage from '../interfaces/storage.interface';
 import { FnRegisterReducers } from '../types/fn-register-reducers';
-import PWAModule from '../pwa-module';
+import MicroModule from '../micro-module';
 import createHistoryContext from '../create-history-context';
 
 interface ExternalModuleEntry {
@@ -32,7 +32,7 @@ interface StateManagementOptions {
     [x: string]: Storage;
   };
   initialState: Object;
-  getModules: (packageName: string, name: string) => Promise<PWAModule<any>>;
+  getModules: (packageName: string, name: string) => Promise<MicroModule<any>>;
 }
 
 interface StoreOptions {

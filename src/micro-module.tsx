@@ -8,10 +8,10 @@ import React, {
   PureComponent,
 } from 'react';
 import { History } from 'history';
-import PWAModuleOptions, {
+import MicroModuleOptions, {
   FnModuleFactory,
   RoutingEntry,
-} from './interfaces/pwa-module-options.interface';
+} from './interfaces/micro-module-options.interface';
 
 import ClientApplicationContext from './interfaces/client-application-context';
 
@@ -92,7 +92,7 @@ function Router({ routing, history, childrenProps }: RouterProps) {
   );
 }
 
-export default class PWAModule<P extends Object> {
+export default class MicroModule<P extends Object> {
   public name: string;
 
   private factory: FnModuleFactory;
@@ -104,7 +104,7 @@ export default class PWAModule<P extends Object> {
   private namedModules: { [x: string]: ElementType };
   private factoryCallbacks: (() => void)[];
 
-  constructor(options: PWAModuleOptions) {
+  constructor(options: MicroModuleOptions) {
     this.renderer = options.placeholder;
     this.factory = options.factory;
     this.name = options.name;
@@ -165,7 +165,7 @@ export default class PWAModule<P extends Object> {
       }
 
       update = () => {
-        console.log(`[pwa] ${self.name} - ${self.status}`);
+        console.log(`[micro] ${self.name} - ${self.status}`);
         if (self.status === 'initialized') return;
         self.factoryModule(ctx, () => {
           if (!this.unmounted) {
@@ -221,4 +221,4 @@ export default class PWAModule<P extends Object> {
   };
 }
 
-export { PWAModule };
+export { MicroModule };

@@ -1,11 +1,11 @@
 import { Request } from 'express';
-import PWAModule from '../pwa-module';
+import MicroModule from '../micro-module';
 import Storage from './storage.interface';
 
 export interface AppOptions {
   appName: string;
   microFE?: boolean;
-  module: PWAModule<any>;
+  module: MicroModule<any>;
   storages: (
     req?: Request,
   ) => {

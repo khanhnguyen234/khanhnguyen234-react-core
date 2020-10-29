@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
-    "deploy": "yarn build && cp .env dist/.env && dotenv cross-var aws s3 sync dist s3://%S3_BUCKET_NAME%/%S3_BUCKET_KEY%/ --acl=public-read"
+    "deploy": "yarn build && cp .env dist/.env && dotenv cross-var aws s3 sync dist s3://%S3_BUCKET_NAME%/%S3_BUCKET_KEY%/ --acl public-read"
   },
   "author": "khanhnguyen234",
   "license": "ISC",
